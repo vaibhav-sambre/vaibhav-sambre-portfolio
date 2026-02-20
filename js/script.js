@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mobile Menu Toggle
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const navList = document.querySelector('.nav-list');
-    
+
     if (mobileMenuBtn) {
         mobileMenuBtn.addEventListener('click', () => {
             navList.classList.toggle('active');
@@ -17,12 +17,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Set Current Year in Footer
+    const currentYearSpan = document.getElementById('current-year');
+    if (currentYearSpan) {
+        currentYearSpan.textContent = new Date().getFullYear();
+    }
+
     // Close mobile menu when a link is clicked
     document.querySelectorAll('.nav-link').forEach(link => {
         link.addEventListener('click', () => {
             navList.classList.remove('active');
             const icon = mobileMenuBtn.querySelector('i');
-            if(icon) {
+            if (icon) {
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
             }
@@ -53,14 +59,14 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-            
+
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 // Account for fixed header
-                const headerOffset = 80; 
+                const headerOffset = 80;
                 const elementPosition = targetElement.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-        
+
                 window.scrollTo({
                     top: offsetPosition,
                     behavior: "smooth"
