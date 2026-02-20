@@ -573,6 +573,118 @@ h6 {
     font-size: 0.9rem;
 }
 
+/* Media & News Section */
+.grid-3-col {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.media-card {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.media-card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(75, 171, 240, 0.4);
+    box-shadow: 0 15px 40px -10px rgba(75, 171, 240, 0.2);
+}
+
+.media-card:hover .media-preview img {
+    transform: scale(1.05);
+}
+
+.media-card:hover .media-link {
+    color: var(--accent-color);
+}
+
+.media-card:hover .media-link i {
+    transform: translateX(5px);
+}
+
+.media-preview {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    border-bottom: 1px solid var(--card-border);
+}
+
+.media-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.media-tag {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: rgba(23, 23, 23, 0.85);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    padding: 6px 12px;
+    border-radius: var(--border-radius-pill);
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--primary-text);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.media-tag i {
+    color: var(--accent-color);
+}
+
+.media-content {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.media-title {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    line-height: 1.4;
+    color: var(--primary-text);
+}
+
+.media-desc {
+    color: var(--secondary-text);
+    font-size: 0.95rem;
+    margin-bottom: 24px;
+    flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.media-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--primary-text);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.media-link i {
+    transition: transform 0.3s ease;
+}
+
 /* Animations */
 .fade-in-up {
     opacity: 0;
@@ -634,7 +746,8 @@ h6 {
         display: block;
     }
 
-    .grid-2-col {
+    .grid-2-col,
+    .grid-3-col {
         grid-template-columns: 1fr;
     }
 
